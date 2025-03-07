@@ -8,7 +8,5 @@ class Program
         var name = Console.ReadLine();
         var currentDate = DateTime.Now;
         Console.WriteLine($"hello, {name}, I am AI that is going to take over world on {currentDate}");
-
-        Console.Read();
     }
 }
