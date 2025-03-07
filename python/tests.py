@@ -49,7 +49,7 @@ class TestPassword(unittest.TestCase):
         )
         self.assertFalse(pw.password.isalnum())
 
-    def test_uniqueness(self):
+    def test_character_uniqueness(self):
         # Tests to ensure that every character is unique by creating a set from the characters and checking the length of that
         pw = Password()
         pw.generatePassword(10)
