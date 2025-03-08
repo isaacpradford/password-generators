@@ -1,9 +1,9 @@
 ﻿// Requirements: 
+// # Min length of 8
 // # Generates n length of password
 // # No duplicate characters
 // # No two same characters next to each other
 // # Include special characters, capital letters, lowercase letters, and a number
-// # Min length of 8
 
 using System;
 
