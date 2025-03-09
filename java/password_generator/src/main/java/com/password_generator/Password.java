@@ -1,8 +1,11 @@
+package com.password_generator;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+        
 public class Password {
     private ArrayList<Character> upper = new ArrayList<>(Arrays.asList(
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
@@ -44,8 +47,6 @@ public class Password {
 
             }
 
-            System.out.println(charSets);
-
             int randSetIndex = rand.nextInt(charSets.size()); // Get random index of items in charSets
             List<Character> charSet = charSets.get(randSetIndex); // Set random index of charSets to variable
             int randCharIndex = rand.nextInt(charSet.size()); // Get random char from selected set
@@ -67,11 +68,5 @@ public class Password {
 
     public String GetPassword() {
         return password;
-    }
-
-    public static void main(String[] args) {
-        Password pw = new Password();
-        pw.GeneratePassword(94);
-        System.out.println("Your password is:" + pw.GetPassword());
     }
 }
