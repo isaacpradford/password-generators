@@ -9,11 +9,48 @@ A simple example of a popular practical code exam where the goal is to generate 
 - Min length of 8
 
 # Solution:
-My solution is fairly straightforward, and has a simple process. First, the function / class instantiates an Array (or ArrayList in Java) of each of the main character types (Capital, lower, digit, symbol).
-Then it creates a 2D array that holds each of these charSet arrays and an empty password string. Next, it starts a while-loop that runs until the password string is == the length of the passed in length parameter.
-It starts by checking to ensure the array holding all 4 arrays isn't empty (and re-adds the charSet arrays if it is), and then picking a random array from the 2D Array and a random character from that array.
-Last, it adds that selected character to the password string, removes the selected character (guaranteeing no duplicates), removes the character array from the 2D array (guaranteeing all character types get used), 
-and then pushes on until the while loop is over, returning the constructed password at the end.
+*In passwordgenerator.js*
+
+const PasswordGenerator = (length) => {
+  let upper = [ "A", ...];
+  let lower = ["a", ...];
+  let symbol = ["!", ...];
+  let digit = ["1", ...];
+  let charSet = [upper, lower, digit, symbol];
+
+  let pw = "";
+
+  while (pw.length < length) {
+    if (length < 8) return pw; // Ensure minimum length
+    if (length > upper.length + lower.length + digit.length + symbol.length)
+      return pw; // Ensure maximum length
+
+  // Once charset is empty, re-add the arrays that still have characters
+    if (charSet.length === 0) {
+      if (upper.length != 0) charSet.push(upper);
+      if (lower.length != 0) charSet.push(lower);
+      if (digit.length != 0) charSet.push(digit);
+      if (symbol.length != 0) charSet.push(symbol);
+    }
+
+  // Get random set from charSet
+    let setIndex = getRandomInt(0, charSet.length - 1);
+
+  // Get random character from selected set
+    let charSetLength = charSet[setIndex].length - 1;
+    let charIndex = getRandomInt(0, charSetLength);
+
+  // Add random character to password, remove it and the used charset from their respective arrays
+  // This ensures all character types are getting used
+    pw += charSet[setIndex][charIndex];
+    charSet[setIndex].splice(charIndex, 1);
+    // charSet.splice(setIndex, 1);
+  }
+
+  return pw;
+};
+
+My solution is fairly straightforward, and has a simple process. First, the function / class instantiates an Array (or ArrayList in Java) of each of the main character types (Capital, lower, digit, symbol). Then it creates a 2D array that holds each of these charSet arrays and an empty password string. Next, it starts a while-loop that runs until the password string is == the length of the passed in length parameter. It starts by checking to ensure the array holding all 4 arrays isn't empty (and re-adds the charSet arrays if it is), and then picking a random array from the 2D Array and a random character from that array. Last, it adds that selected character to the password string, removes the selected character (guaranteeing no duplicates), removes the character array from the 2D array (guaranteeing all character types get used), and then pushes on until the while loop is over, returning the constructed password at the end.
 
 This solution has an O(n) time where n = the length of the requested password. This solution also is very modular, as it's very easy to change which characters are accepted and which aren't.
 
