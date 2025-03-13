@@ -1,0 +1,14 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "Password Generator in javascript",
+  "main": "PasswordGenerator.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Isaac Radford",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
