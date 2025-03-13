@@ -10,7 +10,7 @@ A simple example of a popular practical code exam where the goal is to generate 
 
 # Solution:
 *In passwordgenerator.js*
-
+```
 const PasswordGenerator = (length) => {
   let upper = [ "A", ...];
   let lower = ["a", ...];
@@ -49,6 +49,7 @@ const PasswordGenerator = (length) => {
 
   return pw;
 };
+```
 
 My solution is fairly straightforward, and has a simple process. First, the function / class instantiates an Array (or ArrayList in Java) of each of the main character types (Capital, lower, digit, symbol). Then it creates a 2D array that holds each of these charSet arrays and an empty password string. Next, it starts a while-loop that runs until the password string is == the length of the passed in length parameter. It starts by checking to ensure the array holding all 4 arrays isn't empty (and re-adds the charSet arrays if it is), and then picking a random array from the 2D Array and a random character from that array. Last, it adds that selected character to the password string, removes the selected character (guaranteeing no duplicates), removes the character array from the 2D array (guaranteeing all character types get used), and then pushes on until the while loop is over, returning the constructed password at the end.
 
